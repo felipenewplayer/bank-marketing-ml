@@ -4,6 +4,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+
 # Carregamento do dataset
 df = pd.read_csv('C:/Users/felip/OneDrive/Área de Trabalho/Felipe/TI/IA/Projetos/bank-marketing-ml/data/bank-full.csv',sep=';',quotechar='"')
 
