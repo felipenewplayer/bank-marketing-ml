@@ -4,9 +4,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+import pickle
 
 # Carregamento do dataset
-df = pd.read_csv('C:/Users/felip/OneDrive/Área de Trabalho/Felipe/TI/IA/Projetos/bank-marketing-ml/data/bank-full.csv',sep=';',quotechar='"')
+df = pd.read_csv(r'C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\IA\Projetos\bank-marketing-ml\RegressaoLogistica\data\bank-full.csv',sep=';',quotechar='"')
 
 # Analisar a estrutura e tratar os dados
 print(df.head(5))
@@ -38,3 +39,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 pipeline.fit(X_train, y_train)
 accuracy = pipeline.score(X_test, y_test)
 print(f'Model accuracy: {accuracy:.2f}')
+
+
+# Salvar o modelo treinado
+
+with open('RegressaoLogistica/logistic_regression_model.pkl', 'wb') as f:
+    pickle.dump(pipeline, f)
